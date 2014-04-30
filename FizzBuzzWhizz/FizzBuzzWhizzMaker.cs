@@ -39,8 +39,27 @@ namespace FizzBuzzWhizz
             this.whizz = whizz;
         }
 
+        public const string FizzStr = "Fizz";
+        public const string BuzzStr = "Buzz";
+        public const string WhizzStr = "Whizz";
+
         public string Translate(int num)
         {
+            if (num % fizz == 0)
+            {
+                return FizzStr;
+            }
+
+            if (num % buzz == 0)
+            {
+                return BuzzStr;
+            }
+
+            if (num % whizz == 0)
+            {
+                return WhizzStr;
+            }
+
             return num.ToString();
         }
     }
