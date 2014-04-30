@@ -84,6 +84,18 @@ namespace FizzBuzzWhizz
 
         public string Translate(int num)
         {
+            int tmp = num;
+
+            while (tmp != 0)
+            {
+                if (tmp % 10 == fizz)
+                {
+                    return FizzStr;
+                }
+
+                tmp /= 10;
+            }
+
             if (num % (fizz * buzz * whizz) == 0)
             {
                 return FizzStr + BuzzStr + WhizzStr;

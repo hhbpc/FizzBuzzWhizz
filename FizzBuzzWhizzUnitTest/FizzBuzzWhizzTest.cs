@@ -168,8 +168,14 @@ namespace FizzBuzzWhizzUnitTest
             FizzBuzzWhizzMaker maker04 = new FizzBuzzWhizzMaker(3, 5, 7);
             Assert.AreEqual("Fizz", maker04.Translate(12), "Failure - given 12 should say Fizz when (3, 5, 7");
 
-            //FizzBuzzWhizzMaker maker05 = new FizzBuzzWhizzMaker(3, 5, 7);
-            //Assert.AreEqual("Fizz", maker05.Translate(13), "Failure - given 13 should say Fizz when (3, 5, 7");
+            FizzBuzzWhizzMaker maker05 = new FizzBuzzWhizzMaker(3, 5, 7);
+            Assert.AreEqual("Fizz", maker05.Translate(13), "Failure - given 13 should say Fizz when (3, 5, 7");
+
+            FizzBuzzWhizzMaker maker06 = new FizzBuzzWhizzMaker(3, 5, 7);
+            Assert.AreEqual("Fizz", maker06.Translate(23), "Failure - given 23 should say Fizz when (3, 5, 7");
+
+            FizzBuzzWhizzMaker maker07 = new FizzBuzzWhizzMaker(3, 5, 7);
+            Assert.AreEqual("Fizz", maker07.Translate(31), "Failure - given 31 should say Fizz when (3, 5, 7");
         }
 
         [TestMethod]
