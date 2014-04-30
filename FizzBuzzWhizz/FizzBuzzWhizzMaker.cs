@@ -17,26 +17,65 @@ namespace FizzBuzzWhizz
         public int Fizz
         {
             get { return fizz; }
-            set { fizz = value; }
+            set
+            {
+                if ((value < 1) || (value > 9))
+                {
+                    throw new ArgumentOutOfRangeException("fizz", "fizz should be non-negative and less than 10");
+                }
+
+                if ((value == buzz) || (value == whizz))
+                {
+                    throw new ArgumentException("the same value with fizz already exists", "fizz");
+                }
+
+                fizz = value;
+            }
         }
 
         public int Buzz
         {
             get { return buzz; }
-            set { buzz = value; }
+            set
+            {
+                if ((value < 1) || (value > 9))
+                {
+                    throw new ArgumentOutOfRangeException("buzz", "buzz should be non-negative and less than 10");
+                }
+
+                if ((value == fizz) || (value == whizz))
+                {
+                    throw new ArgumentException("the same value with buzz already exists", "buzz");
+                }
+
+                buzz = value;
+            }
         }
 
         public int Whizz
         {
             get { return whizz; }
-            set { whizz = value; }
+            set
+            {
+                if ((value < 1) || (value > 9))
+                {
+                    throw new ArgumentOutOfRangeException("whizz", "whizz should be non-negative and less than 10");
+                }
+
+                if ((value == fizz) || (value == buzz))
+                {
+                    throw new ArgumentException("the same value with whizz already exists", "whizz");
+                }
+
+                whizz = value;
+            }
         }
 
         public FizzBuzzWhizzMaker(int fizz, int buzz, int whizz)
         {
-            this.fizz = fizz;
-            this.buzz = buzz;
-            this.whizz = whizz;
+            Fizz = fizz;
+            Buzz = buzz;
+            Whizz = whizz;
         }
 
         public const string FizzStr = "Fizz";
@@ -45,6 +84,11 @@ namespace FizzBuzzWhizz
 
         public string Translate(int num)
         {
+            if (num % (fizz * buzz * whizz) == 0)
+            {
+                return FizzStr + BuzzStr + WhizzStr;
+            }
+
             if (num % fizz == 0)
             {
                 return FizzStr;
