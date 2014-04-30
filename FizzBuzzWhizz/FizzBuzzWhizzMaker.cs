@@ -89,6 +89,21 @@ namespace FizzBuzzWhizz
                 return FizzStr + BuzzStr + WhizzStr;
             }
 
+            if (num % (fizz * buzz) == 0)
+            {
+                return FizzStr + BuzzStr;
+            }
+
+            if (num % (fizz * whizz) == 0)
+            {
+                return FizzStr + WhizzStr;
+            }
+
+            if (num % (buzz * whizz) == 0)
+            {
+                return BuzzStr + WhizzStr;
+            }
+
             if (num % fizz == 0)
             {
                 return FizzStr;
