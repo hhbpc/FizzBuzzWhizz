@@ -1,20 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FizzBuzzWhizz
 {
     public class FizzBuzzWhizzMaker
     {
-        private int fizz;
+        private static int fizz;
 
-        private int buzz;
+        private static int buzz;
 
-        private int whizz;
+        private static int whizz;
 
-        public int Fizz
+        public static int Fizz
         {
             get { return fizz; }
             set
@@ -33,7 +29,7 @@ namespace FizzBuzzWhizz
             }
         }
 
-        public int Buzz
+        public static int Buzz
         {
             get { return buzz; }
             set
@@ -52,7 +48,7 @@ namespace FizzBuzzWhizz
             }
         }
 
-        public int Whizz
+        public static int Whizz
         {
             get { return whizz; }
             set
@@ -78,62 +74,19 @@ namespace FizzBuzzWhizz
             Whizz = whizz;
         }
 
-        public const string FizzStr = "Fizz";
-        public const string BuzzStr = "Buzz";
-        public const string WhizzStr = "Whizz";
-
         public string Translate(int num)
         {
-            int tmp = num;
-
-            while (tmp != 0)
-            {
-                if (tmp % 10 == fizz)
-                {
-                    return FizzStr;
-                }
-
-                tmp /= 10;
-            }
-
-            if (num % (fizz * buzz * whizz) == 0)
-            {
-                return FizzStr + BuzzStr + WhizzStr;
-            }
-
-            if (num % (fizz * buzz) == 0)
-            {
-                return FizzStr + BuzzStr;
-            }
-
-            if (num % (fizz * whizz) == 0)
-            {
-                return FizzStr + WhizzStr;
-            }
-
-            if (num % (buzz * whizz) == 0)
-            {
-                return BuzzStr + WhizzStr;
-            }
-
-            if (num % fizz == 0)
-            {
-                return FizzStr;
-            }
-
-            if (num % buzz == 0)
-            {
-                return BuzzStr;
-            }
-
-            if (num % whizz == 0)
-            {
-                return WhizzStr;
-            }
-
             NumHandler commonNumHandler = new CommonNumHandler(null);
+            NumHandler whizzNumHandler = new WhizzNumHandler(commonNumHandler);
+            NumHandler buzzNumHandler = new BuzzNumHandler(whizzNumHandler);
+            NumHandler fizzNumHandler = new FizzNumHandler(buzzNumHandler);
+            NumHandler buzzWhizzNumHandler = new BuzzWhizzNumHandler(fizzNumHandler);
+            NumHandler fizzWhizzNumHandler = new FizzWhizzNumHandler(buzzWhizzNumHandler);
+            NumHandler fizzBuzzNumHandler = new FizzBuzzNumHandler(fizzWhizzNumHandler);
+            NumHandler fizzBuzzWhizzNumHandler = new FizzBuzzWhizzNumHandler(fizzBuzzNumHandler);
+            NumHandler fizzSpecialNumHandler = new FizzSpecialNumHandler(fizzBuzzWhizzNumHandler);
 
-            return commonNumHandler.Translate(num);
+            return fizzSpecialNumHandler.Translate(num);
         }
     }
 }

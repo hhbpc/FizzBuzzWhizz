@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FizzBuzzWhizz
+﻿namespace FizzBuzzWhizz
 {
     internal abstract class NumHandler
     {
-        protected NumHandler Successor;
+        protected NumHandler Successor = null;
 
         protected NumHandler(NumHandler successor)
         {

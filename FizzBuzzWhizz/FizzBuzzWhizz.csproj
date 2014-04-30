@@ -41,11 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuzzNumHandler.cs" />
+    <Compile Include="BuzzWhizzNumHandler.cs" />
     <Compile Include="CommonNumHandler.cs" />
+    <Compile Include="Constant.cs" />
+    <Compile Include="FizzBuzzNumHandler.cs" />
     <Compile Include="FizzBuzzWhizzMaker.cs" />
+    <Compile Include="FizzBuzzWhizzNumHandler.cs" />
+    <Compile Include="FizzNumHandler.cs" />
+    <Compile Include="FizzSpecialNumHandler.cs" />
+    <Compile Include="FizzWhizzNumHandler.cs" />
     <Compile Include="NumHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WhizzNumHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
