@@ -131,7 +131,9 @@ namespace FizzBuzzWhizz
                 return WhizzStr;
             }
 
-            return num.ToString();
+            NumHandler commonNumHandler = new CommonNumHandler(null);
+
+            return commonNumHandler.Translate(num);
         }
     }
 }
